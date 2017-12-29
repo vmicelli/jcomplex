@@ -7,7 +7,7 @@
 This project is a Java library for Complex Numbers. The Complex class is a modified version of the one in the project 
 [common-math](https://github.com/apache/commons-math) developed by Apache Software Foundation.
 
-This is a super lightweight project that provide support for Complex Number in Java.
+This is a super lightweight project that provides support for complex numbers in Java.
 
 Unlike the original Apache project, the Complex class in this library inherits from 
 [java.lang.Number](https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html).
