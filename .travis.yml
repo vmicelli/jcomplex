@@ -3,8 +3,20 @@ language: java
 after_success:
   - mvn clean test jacoco:report coveralls:report
 
+before_deploy:
+  - "mvn -DskipTests package"
+  - export FILE_NAMES=$(ls target/jcomplex-*.jar)
+
 deploy:
-  provider: script
-  script: deploy/deploy.sh
-  on:
-    all_branches: true
+  - provider: script
+    script: echo FILE_NAMES
+    on:
+      all_branches: true 
+  - provider: script
+    script: deploy/deploy.sh
+    on:
+      tags: true 
+  - provider: releases
+    file: "${FILE_NAMES}"
+    on:
+      tags: true 
