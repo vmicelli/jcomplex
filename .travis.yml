@@ -9,10 +9,6 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: echo ${FILE_NAMES[*]}
-    on:
-      all_branches: true 
-  - provider: script
     script: deploy/deploy.sh
     on:
       tags: true 
