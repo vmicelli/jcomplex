@@ -4,7 +4,7 @@ after_success:
   - mvn clean test jacoco:report coveralls:report
 
 before_deploy:
-  - "mvn -DskipTests package"
+  - "mvn -DskipTests package -P release"
   - export FILE_NAMES=$(ls target/jcomplex-*.jar)
 
 deploy:
