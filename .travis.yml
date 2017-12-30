@@ -5,10 +5,6 @@ after_success:
 
 deploy:
   provider: script
-  script: 
-  - echo $SIGNING_KEY | base64 --decode > signingkey.asc
-  - gpg --fast-import signingkey.asc
-  - cp .travis.settings.xml $HOME/.m2/settings.xml
-  - mvn clean deploy -P release
+  script: deploy/deploy.sh
   on:
     tags: true
