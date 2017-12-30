@@ -25,5 +25,6 @@ hs_err_pid*
 .idea
 *.iml
 
-#mvn target
+#mvn 
 target/
+settings.xml
