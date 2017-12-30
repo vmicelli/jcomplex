@@ -9,7 +9,7 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: echo ${FILE_NAMES[1]}
+    script: ( IFS=$'\n'; echo "${FILE_NAMES[*]}" )
     on:
       all_branches: true 
   - provider: script
