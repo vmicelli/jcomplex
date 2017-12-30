@@ -2,9 +2,10 @@ language: java
 
 after_success:
   - mvn clean test jacoco:report coveralls:report
+  - gpg --version
 
 deploy:
   provider: script
   script: deploy/deploy.sh
   on:
-    tags: true
+    tags: false
