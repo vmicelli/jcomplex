@@ -9,7 +9,7 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: echo FILE_NAMES
+    script: echo ${FILE_NAMES[1]}
     on:
       all_branches: true 
   - provider: script
