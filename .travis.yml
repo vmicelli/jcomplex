@@ -8,4 +8,4 @@ deploy:
   provider: script
   script: deploy/deploy.sh
   on:
-    tags: false
+    all_branches: true
