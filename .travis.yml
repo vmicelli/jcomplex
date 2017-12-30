@@ -5,14 +5,11 @@ after_success:
 
 before_deploy:
   - "mvn -DskipTests package -P release"
-  - export FILE_NAMES=$(ls target/jcomplex-*.jar)
 
 deploy:
-  - provider: script
-    script: deploy/deploy.sh
-    on:
-      tags: true 
   - provider: releases
-    file: "${FILE_NAMES}"
+    file_glob: true
+    file: target/jcomplex-*.jar
+    skip_cleanup: true
     on:
       tags: true 
