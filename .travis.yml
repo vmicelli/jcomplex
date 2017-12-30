@@ -3,8 +3,18 @@ language: java
 after_success:
   - mvn clean test jacoco:report coveralls:report
 
+before_deploy:
+  - "mvn -DskipTests package -P release"
+
 deploy:
-  provider: script
-  script: deploy/deploy.sh
-  on:
-    tags: true
+  - provider: script
+    script: deploy/deploy.sh
+    on:
+      tags: true 
+  - provider: releases
+    api_key: $GITHUB_OAUTH_TOKEN
+    file_glob: true
+    file: target/jcomplex-*.jar
+    skip_cleanup: true
+    on:
+      tags: true 
