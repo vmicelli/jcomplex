@@ -2,8 +2,6 @@ language: java
 
 after_success:
   - mvn clean test jacoco:report coveralls:report
-  - gpg --version
-  - gpg2 --version
   - ./deploy/deploy.sh
 
 deploy:
