@@ -2,10 +2,9 @@ language: java
 
 after_success:
   - mvn clean test jacoco:report coveralls:report
-  - ./deploy/deploy.sh
 
 deploy:
   provider: script
-  script: ./deploy/deploy.sh
+  script: deploy/deploy.sh
   on:
     all_branches: true
